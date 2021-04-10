@@ -1,5 +1,11 @@
 using UnityEngine;
 
+/*
+
+The most basic turret
+
+*/
+
 public class TurretNormal : Turret
 {
     [Space]
@@ -19,6 +25,8 @@ public class TurretNormal : Turret
     [SerializeField] private int rangeUpgradeCost = 30;
     [SerializeField] private int rangeUpgradeMaxLevel = 2;
 
+
+    /// Set all the available upgrades for this turret
     override public void Start() 
     {
         base.Start();
@@ -31,6 +39,8 @@ public class TurretNormal : Turret
         upgrades.Add(speedUpgrade);
         upgrades.Add(rangeUpgrade);
     }
+
+    /// The next 3 methods define the functionality behind each upgrade
 
     private void UpgradeDamage()
     {

@@ -1,7 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/*
+
+Menu showed when the player clicks any displayed turret
+
+Displays buttons for each upgrade available for the turret selected
+
+*/
 
 public class UpgradeMenu : MonoBehaviour
 {
@@ -31,6 +38,7 @@ public class UpgradeMenu : MonoBehaviour
             sellAmountText.text = $"${selectedTurret.GetCurrentSellAmount()}";    
     }
 
+    /// Creates a button for each upgrade available on the turret
     public void OpenUpdgrades(Turret turret)
     {
         if(turret==selectedTurret)

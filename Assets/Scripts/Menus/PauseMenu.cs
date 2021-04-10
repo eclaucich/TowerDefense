@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+
+Menu showed when the player pause the game
+
+*/
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Text currentWaveText;

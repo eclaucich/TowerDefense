@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+
+Class that handles spawing each wave of enemies
+
+*/
+
+
 public class WaveController : MonoBehaviour
 {
     [Header("Enemies")]
-    [SerializeField] private List<Enemy> enemiesPrefabs;
-    private List<Enemy> availableEnemies;
+    [SerializeField] private List<Enemy> enemiesPrefabs;    // Prefabs of every enemy of the game
+    private List<Enemy> availableEnemies;   // List of the current available enemies to spawn base on current wave
 
     [Space]
     [Header("Spawner")]
     [SerializeField] private float timeBtwEnemies = 1f;
     [SerializeField] private float timeBtwWaves = 3f;
     private float currentTimeBtwWaves;
+
+    [Space]
+    [Header("UI")]
     [SerializeField] private Button nextWaveButton;
     [SerializeField] private Text timeForNextWave;
 
@@ -50,6 +60,8 @@ public class WaveController : MonoBehaviour
         currentTimeBtwWaves = 0f;
     }
 
+    // Coroutine that handles spawning each enemy of the current wave
+    // It handles special events on certain wave number
     private IEnumerator SpawnNewWave()
     {
         GameController.instance.currentWave++;
@@ -86,6 +98,7 @@ public class WaveController : MonoBehaviour
         }
     }
 
+    // Handles the increase dificulty of the waves
     private int EnemyWaveIncreaseFunction(int waveNumber)
     {
         return waveNumber*2;

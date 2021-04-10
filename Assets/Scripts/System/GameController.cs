@@ -2,6 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+
+Singleton that handles core functionallity of the game.
+It holds global game properties and global prefabs
+
+*/
+
 public class GameController : MonoBehaviour
 {
     public static GameController instance = null;
@@ -13,6 +20,9 @@ public class GameController : MonoBehaviour
     [HideInInspector] public int currentMoney;
     [HideInInspector] public int bestWave = 0;
 
+    [Header("Fonts")]
+    [SerializeField] public Font uiTextFont;
+    
     [Space]
     [Header("Game properties")]
     [SerializeField] private int startingLives = 100;
@@ -64,6 +74,7 @@ public class GameController : MonoBehaviour
         GameController.instance.bestWave = LoadSystem.LoadBestWave();
     }
 
+    /// Checks if the game is over
     private void FixedUpdate() 
     {
         if(currentLives <= 0)
@@ -74,6 +85,7 @@ public class GameController : MonoBehaviour
         }    
     }
 
+    /// Handles the differents game states
     public void ChangeGameState(GameController.GameState newGameState)
     {
         gameState = newGameState;

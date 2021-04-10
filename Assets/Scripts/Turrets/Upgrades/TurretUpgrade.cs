@@ -1,4 +1,13 @@
+/*
 
+Base class that represents a generic upgrade for any turret 
+    upgradeName -> name that represents this upgrade
+    price -> money needed to be bought
+    description -> explains what the upgrade does
+    rateCostIncrease -> rate at what the cost of the upgrade will increase (between each upgrade level)
+    currentUpgradeLevel -> current level of the upgrade
+    maxUpgradeLevel -> level at with the upgrade will be max out
+*/
 public class TurretUpgrade
 {
     private string upgradeName;
@@ -12,6 +21,7 @@ public class TurretUpgrade
     private Upgrade upgradeMethod;
 
 
+    
     public TurretUpgrade(string upgradeName_, string description_, int price_, Upgrade upgradeMethod_, int maxUpgradeLevel_)
     {
         upgradeName = upgradeName_;
@@ -34,7 +44,8 @@ public class TurretUpgrade
         price = (int)(price * (1.0f+rateCostIncrease));
     }
 
-    #region Setters
+
+#region Setters
     public void UpdateDescription(string newDescription)
     {
         description = newDescription;
@@ -44,9 +55,10 @@ public class TurretUpgrade
     {
         price = newPrice;
     }
-    #endregion
+#endregion
 
-    #region Getters
+
+#region Getters
     public string GetName()
     {
         return upgradeName;
@@ -71,5 +83,5 @@ public class TurretUpgrade
     {
         return maxUpgradeLevel;
     }
-    #endregion
+#endregion
 }

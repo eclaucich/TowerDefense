@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+
+Menu that shows important information to the player
+
+*/
+
 public class InfoMenu : MonoBehaviour
 {
     [SerializeField] private Text wavesText;

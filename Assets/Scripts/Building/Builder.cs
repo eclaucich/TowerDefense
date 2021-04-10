@@ -1,6 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/*
+
+Singleton that handles building the current selected turret
+
+*/
 
 public class Builder : MonoBehaviour
 {
@@ -21,6 +25,8 @@ public class Builder : MonoBehaviour
         selectedTurret = null;
     }
 
+    /// Called after clicking on a valid building block
+    /// Instantiate the selected turret on top of the building block clicked
     public void BuildTurret(Vector3 position)
     {
         if(selectedTurret!=null)

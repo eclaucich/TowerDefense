@@ -2,6 +2,12 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+/*
+
+Handles loading from system different game properties and values
+
+*/
+
 public static class LoadSystem
 {
     private static string mainPath = SaveSystem.mainPath;

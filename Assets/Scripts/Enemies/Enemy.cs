@@ -1,6 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/*
+
+Base class for the enemies
+    speed -> movement speed
+    lives -> hits needed to be killed
+    priceMoney -> money that gives to the player when killed
+    minWave -> wave where it appears for the first time
+
+*/
 
 public class Enemy : MonoBehaviour
 {
@@ -12,6 +20,7 @@ public class Enemy : MonoBehaviour
     private int currentWaypointIndex = 1;
     private Transform currentWaypoint = null;
 
+    /// Moves the enemy to the current waypoint, when reached asks to the Map for the next waypoint
     private void Update() 
     {
         if(GameController.instance.gameState == GameController.GameState.playing)
@@ -22,6 +31,7 @@ public class Enemy : MonoBehaviour
 
                 if(Vector3.Distance(transform.position, currentWaypoint.position)<=0.01f)
                 {
+                    // Player base reached (TODO: this needs to be managed on a PlayerBase script)
                     if(currentWaypointIndex == Map.instance.GetNumberOfWaypoints()-1)
                     {
                         GameController.instance.currentLives -= 1;
@@ -41,6 +51,7 @@ public class Enemy : MonoBehaviour
         currentWaypoint = waypoint;
     }
 
+    /// Damage the enmey with certain amount
     public void Damage(int amount)
     {
         lives -= amount;

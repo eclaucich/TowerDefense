@@ -1,6 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/*
+
+Base class for a bullet fired by a turret
+
+*/
 
 public class Bullet : MonoBehaviour
 {
@@ -8,6 +12,7 @@ public class Bullet : MonoBehaviour
     private Transform target = null;
     private int damage;
 
+    /// Moves towards the target until it reachs it
     void Update()
     {
         if(GameController.instance.gameState == GameController.GameState.playing)
@@ -25,6 +30,7 @@ public class Bullet : MonoBehaviour
         damage = damage_;
     }
 
+    /// Damage the enemy when hitted and destroys itself
     private void OnTriggerEnter(Collider other) 
     {
         if(other.tag == "Enemy")

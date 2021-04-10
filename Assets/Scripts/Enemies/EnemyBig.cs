@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/*
+
+Currently there's no unique funtionality for this kind of enemy
+
+*/
 
 public class EnemyBig : Enemy
 {

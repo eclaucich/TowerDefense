@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/*
+
+Currently theres no unique funtionality for this kind of enemy
+
+*/
 
 public class EnemyFast : Enemy
 {

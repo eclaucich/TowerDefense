@@ -1,6 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/*
+
+Base class that represent a turret in game
+
+*/
 
 public class Turret : MonoBehaviour
 {
@@ -32,7 +37,7 @@ public class Turret : MonoBehaviour
     virtual public void Start() 
     {
         rangeZone.SetActive(false);    
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);  
 
         Vector3 scaleRangeZone = new Vector3(range*2, 0.01f, range*2);
         rangeZone.transform.localScale = scaleRangeZone;
@@ -44,6 +49,7 @@ public class Turret : MonoBehaviour
         currentTurretValue = turretPrice;
     }
 
+    /// Rotates turret to face current target and fires if it needs
     private void Update() 
     {
         if(GameController.instance.gameState == GameController.GameState.playing)
@@ -66,6 +72,7 @@ public class Turret : MonoBehaviour
         }
     }
 
+    /// Constantly checks for the closest enemy inside its range and setted as the current target
     private void UpdateTarget()
     {
         if(GameController.instance.gameState == GameController.GameState.playing)
@@ -127,6 +134,7 @@ public class Turret : MonoBehaviour
         rangeZone.transform.localScale = scaleRangeZone;
     }
 
+#region Getters
     public int GetCurrentSellAmount()
     {
         return (int)(currentTurretValue*GameController.instance.sellPercentage);
@@ -146,4 +154,5 @@ public class Turret : MonoBehaviour
     {
         return upgrades;
     }
+#endregion
 }

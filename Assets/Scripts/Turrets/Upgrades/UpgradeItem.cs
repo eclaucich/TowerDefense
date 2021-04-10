@@ -1,7 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/*
+
+Represents the UI for a turret upgrade
+
+*/
 
 public class UpgradeItem : MonoBehaviour
 {

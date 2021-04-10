@@ -1,6 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/*
+
+Shop menu. Creates an ItemShop for every item that will be available to buy
+
+*/
 
 public class Shop : MonoBehaviour
 {

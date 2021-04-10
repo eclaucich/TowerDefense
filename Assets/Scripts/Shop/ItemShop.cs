@@ -1,11 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+
+Class that represent something that could be bought
+
+*/
+
 public class ItemShop : MonoBehaviour
 {
     [SerializeField] private Button button;
 
-    [Header("Info")]
+    [Header("Item Info")]
     [SerializeField] private Text itemName;
     [SerializeField] private Text itemPrice;
 
